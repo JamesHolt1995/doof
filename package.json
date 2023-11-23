@@ -10,6 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.6.0"
+    "astro": "^3.6.0",
+    "lottie-web": "^5.12.2",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
   }
 }

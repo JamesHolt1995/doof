@@ -1,0 +1,168 @@
+---
+import { Image } from "astro:assets";
+import exampleImage from "../img/example.png";
+---
+
+<div class="releases">
+	<div class="releases__header">
+		<div>DOOF RELEASES</div>
+		<div>DATE</div>
+	</div>
+	<ul class="releases__list">
+		<li class="releases__item releases__item--active">
+			<div>000 / Release A</div>
+			<div>23/11/2023</div>
+		</li>
+		<li class="releases__item">
+			<div>001 / Release A</div>
+			<div>23/11/2023</div>
+		</li>
+		<li class="releases__item">
+			<div>002 / Release A</div>
+			<div>23/11/2023</div>
+		</li>
+		<li class="releases__item">
+			<div>003 / Release A</div>
+			<div>23/11/2023</div>
+		</li>
+		<li class="releases__item">
+			<div>004 / Release A</div>
+			<div>23/11/2023</div>
+		</li>
+	</ul>
+</div>
+
+<div class="release-preview">
+	<div class="release-preview__inner">
+		<div class="release-preview__image-container">
+			<Image width="800" src={exampleImage} alt="example image" />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.releases {
+		position: absolute;
+		top: 0;
+		background-color: white;
+		width: 100%;
+		color: black;
+		min-height: 150vh;
+		box-sizing: border-box;
+		padding-bottom: 60vh;
+		&__header {
+			padding: 20px;
+			border-bottom: 1px solid #333;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			position: fixed;
+			top: 0;
+			background-color: var(--white);
+		}
+		&__list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			padding-top: 60px;
+		}
+		&__item {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			padding: 20px;
+			font-size: 14px;
+			&--active {
+				background-color: var(--highlight);
+			}
+		}
+	}
+	.release-preview {
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		background-color: black;
+		&__inner {
+			padding: 10px;
+		}
+		&__image-container {
+			width: 100%;
+			height: 0;
+			padding-top: 100%;
+			position: relative;
+			img {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+		.release-preview {
+			&__image-container {
+				padding-top: 0;
+				height: 50vh;
+			}
+		}
+	}
+
+	@media screen and (min-width: 900px) {
+		.releases {
+			height: calc(100% - 140px);
+			min-height: auto;
+			width: 50%;
+			top: 70px;
+			margin-left: auto;
+			position: fixed;
+			right: 0;
+			overflow: scroll;
+
+			z-index: 101;
+			&__header {
+				position: fixed;
+				top: 70px;
+			}
+			&__list {
+				padding-top: 58px;
+				min-height: 200vh;
+				overflow: scroll;
+			}
+		}
+
+		.release-preview {
+			width: 50%;
+			height: 100%;
+			&__inner {
+				width: 100%;
+				height: 100%;
+				padding: 100px;
+			}
+			&__image-container {
+				height: 100%;
+			}
+		}
+	}
+</style>
+
+<script>
+	const items = document.querySelectorAll(".releases__item");
+	console.log(items);
+
+	const toggle = (item) => {
+		console.log(item);
+		item.addEventListener("click", (e) => {
+			item.classList.toggle("releases__item--active");
+			for (var i = 0; i < items.length; i++) {
+				if (e.currentTarget != items[i]) {
+					// check here
+					items[i].classList.remove("releases__item--active");
+				}
+			}
+		});
+	};
+
+	items.forEach(toggle);
+</script>

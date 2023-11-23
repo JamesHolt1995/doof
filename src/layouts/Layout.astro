@@ -1,0 +1,43 @@
+---
+import "normalize.css";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="stylesheet" href="https://use.typekit.net/may4frq.css" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style lang="scss" is:global>
+	:root {
+		--main-font: "eurostile-extended", sans-serif;
+		--main-font-weight: 900;
+		--secondary-font-weight: 500;
+		--white: #ffffff;
+		--highlight: #3cff00;
+	}
+	body {
+		background-color: black;
+		color: white;
+		font-style: normal;
+		font-family: var(--main-font);
+		font-weight: var(--main-font-weight);
+	}
+	* {
+		box-sizing: border-box;
+	}
+</style>

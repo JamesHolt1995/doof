@@ -1,0 +1,153 @@
+---
+export interface Props {
+	page: string;
+}
+
+const { page } = Astro.props;
+
+let href = "/releases/";
+let text = "Releases";
+
+if (page === "releases") {
+	href = "/";
+	text = "home";
+}
+---
+
+<nav class="menu">
+	<ul class="menu__top">
+		<li class="menu__trigger">Menu</li>
+
+		<li>
+			<a href={href} target="_self">{text}</a>
+		</li>
+		<li>
+			<a href="https://mailchimp.com/" target="_blank">Newsletter</a>
+		</li>
+		<li>
+			<a href="mailto:doofdemos@gmail.com" target="_blank">Submit Demo</a>
+		</li>
+		<li>
+			<a href="https://www.instagram.com/doofdoof__/" target="_blank">
+				Instagram
+			</a>
+		</li>
+	</ul>
+
+	<ul class="menu__bottom">
+		<li>
+			<a href="https://doofdoof.bandcamp.com" target="_blank">Bandcamp</a>
+		</li>
+		<li>
+			<a href="https://soundcloud.com/doofdoofmusic" target="_blank">
+				Soundcloud
+			</a>
+		</li>
+		<li>
+			<a href="https://www.tiktok.com/@doofdoof_" target="_blank">TikTok</a>
+		</li>
+		<li>
+			<a href="https://www.youtube.com/@doofdoof_" target="_blank">Youtube</a>
+		</li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	.menu {
+		text-transform: uppercase;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 20px;
+		box-sizing: border-box;
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		a {
+			color: var(--white);
+			text-decoration: none;
+			&:visited {
+				color: var(--white);
+			}
+			&:hover {
+				color: var(--highlight);
+			}
+		}
+		&__trigger {
+			display: none;
+		}
+
+		&__top,
+		&__bottom {
+			font-size: 21px;
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+	}
+
+	@media screen and (max-width: 900px) {
+		.menu {
+			display: flex;
+			text-align: center;
+			flex-direction: column;
+			gap: 30px;
+			justify-content: flex-start;
+			a {
+				color: black;
+				&:visited {
+					color: black;
+				}
+			}
+			li {
+				display: none;
+			}
+			li.menu__trigger {
+				display: block;
+				width: calc(100% + 40px);
+				background-color: black;
+				margin: -20px;
+				margin-bottom: 20px;
+				padding: 30px;
+				box-sizing: border-box;
+			}
+			&__top,
+			&__bottom {
+				justify-content: center;
+				flex-direction: column;
+				gap: 30px;
+			}
+			&--open {
+				background-color: var(--white);
+				li {
+					display: block;
+				}
+			}
+		}
+	}
+</style>
+
+<script>
+	const trigger = document.querySelector(".menu__trigger");
+	const menu = document.querySelector(".menu");
+	let menuOpen = false;
+	const html = trigger.innerHTML;
+
+	trigger.addEventListener("click", () => {
+		menu.classList.toggle("menu--open");
+		if (menuOpen === false) {
+			trigger.innerHTML = "x";
+		} else {
+			trigger.innerHTML = html;
+		}
+		menuOpen = !menuOpen;
+	});
+</script>
