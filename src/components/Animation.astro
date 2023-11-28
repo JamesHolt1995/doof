@@ -3,60 +3,33 @@
 ---
 
 <div class="container">
-	<div class="animation"></div>
-	<div class="animation-overlay">
-		<img src="./spray-woman.png" alt="spray-painted-woman" />
-	</div>
+	<video src="./video_export.mp4" autoplay muted loop></video>
 </div>
 
 <script>
-	import lottie from "lottie-web";
+	// import lottie from "lottie-web";
 
-	const el = document.querySelector(".animation");
+	// const el = document.querySelector(".animation");
 
-	lottie.loadAnimation({
-		container: el, // the dom element that will contain the animation
-		renderer: "svg",
-		loop: true,
-		autoplay: true,
-		path: "./animation.json", // the path to the animation json
-	});
+	// lottie.loadAnimation({
+	// 	container: el, // the dom element that will contain the animation
+	// 	renderer: "svg",
+	// 	loop: true,
+	// 	autoplay: true,
+	// 	path: "./animation.json", // the path to the animation json
+	// });
 </script>
 
 <style lang="scss">
 	.container {
 		width: 100%;
 		height: 100vh;
-		display: grid;
-	}
-	.animation,
-	.animation-overlay {
-		width: 80%;
-		align-self: center;
-		justify-self: center;
-		grid-area: 1/1/1/1;
-	}
-	.animation-overlay {
-		width: 15%;
-		margin-bottom: -10%;
-		position: relative;
-		z-index: 1;
-		grid-area: 1/1/1/1;
-		overflow: hidden;
-		img {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		video {
 			width: 100%;
-			object-fit: contain;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.animation {
-			transform: rotate(-90deg) translateY(-10%);
-			width: 80vh;
-			position: fixed;
-		}
-		.animation-overlay {
-			width: 25vh;
+			max-width: 1080px;
 		}
 	}
 </style>
