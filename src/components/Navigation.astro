@@ -103,6 +103,9 @@ const { page } = Astro.props;
 				&:visited {
 					color: black;
 				}
+				&:hover {
+					color: var(--highlight);
+				}
 			}
 			li {
 				display: none;
@@ -123,6 +126,7 @@ const { page } = Astro.props;
 				gap: 30px;
 			}
 			&--open {
+				z-index: 1000;
 				background-color: var(--white);
 				li {
 					display: block;
