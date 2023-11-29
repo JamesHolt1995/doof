@@ -1,0 +1,153 @@
+---
+
+---
+
+<div class="signup">
+	<form
+		id="form"
+		action="https://club.us21.list-manage.com/subscribe/post"
+		method="POST"
+	>
+		<!--  -->
+		<input type="hidden" name="u" value="4826e6f431bcf9c2e309e8f26" />
+		<input type="hidden" name="id" value="fa000ad1d9" />
+
+		<!-- people should not fill these in and expect good things -->
+		<!-- <div
+			class="field-shift hidden"
+			aria-label="Please leave the following three fields empty"
+			aria-hidden="true"
+		>
+			<label for="b_name">Name:</label>
+			<input
+				type="text"
+				name="b_name"
+				tabindex="-1"
+				value=""
+				placeholder="Freddie"
+				id="b_name"
+			/>
+
+			<label for="b_email">Email:</label>
+			<input
+				type="email"
+				name="b_email"
+				tabindex="-1"
+				value=""
+				placeholder="youremail@gmail.com"
+				id="b_email"
+			/>
+
+			<label for="b_comment">Comment:</label>
+			<textarea
+				name="b_comment"
+				tabindex="-1"
+				placeholder="Please comment"
+				id="b_comment"></textarea>
+		</div> -->
+
+		<label for="MERGE1">First Name</label>
+
+		<input type="text" name="MERGE1" id="MERGE1" size="25" value="" />
+
+		<label for="MERGE2">Last Name</label>
+
+		<input type="text" name="MERGE2" id="MERGE2" size="25" value="" />
+
+		<label for="MERGE0">Email Address <span class="req asterisk">*</span></label
+		>
+
+		<input
+			type="email"
+			autocapitalize="off"
+			autocorrect="off"
+			name="MERGE0"
+			id="MERGE0"
+			size="25"
+			value=""
+		/>
+
+		<input
+			id="submit"
+			class="submit"
+			type="submit"
+			class="formEmailButton"
+			name="submit"
+			value="Subscribe"
+		/>
+	</form>
+
+	<input
+		type="hidden"
+		name="ht"
+		value="065983a229863730450040382831032a14cd7e6a:MTcwMTE5MjA0OS4xMjMx"
+	/>
+	<input type="hidden" name="mc_signupsource" value="website" />
+</div>
+
+<style lang="scss">
+	.hidden {
+		display: none;
+	}
+
+	.signup {
+		position: relative;
+		z-index: 100;
+		min-height: 70vh;
+		top: 15vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 40px;
+		input {
+			background-color: transparent;
+			outline: none;
+			border: 1px solid var(--white);
+			font-size: 3rem;
+			color: white;
+			width: 100%;
+			max-width: 1080px;
+		}
+		input.submit {
+			background-color: white;
+			color: black;
+			display: block;
+			margin-top: 20px;
+			&:hover {
+				background-color: var(--highlight);
+				border: 1px solid var(--highlight);
+				cursor: pointer;
+			}
+		}
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+</style>
+
+<script>
+	// import Axios from "axios";
+	// const form = document.querySelector("#form");
+	// const submit = document.getElementById("submit") as HTMLInputElement;
+
+	// form.addEventListener("submit", (event) => {
+	// 	submit.disabled = true;
+	// 	submit.value = "subscribed";
+	// 	event.preventDefault();
+	// 	const email = document.getElementById("MERGE0");
+	// 	const firstName = document.getElementById("MERGE1");
+	// 	const lastName = document.getElementById("MERGE3");
+	// 	//mailchimp
+	// 	Axios.post("https://club.us21.list-manage.com/subscribe/post-json", {
+	// 		email_address: email,
+	// 		status: "subscribed",
+	// 		merge_fields: {
+	// 			FNAME: firstName,
+	// 			LNAME: lastName,
+	// 		},
+	// 	});
+	// });
+</script>

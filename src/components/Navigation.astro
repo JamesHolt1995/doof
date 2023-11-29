@@ -4,14 +4,6 @@ export interface Props {
 }
 
 const { page } = Astro.props;
-
-let href = "/releases/";
-let text = "Releases";
-
-if (page === "releases") {
-	href = "/";
-	text = "home";
-}
 ---
 
 <nav class="menu">
@@ -19,10 +11,13 @@ if (page === "releases") {
 		<li class="menu__trigger">Menu</li>
 
 		<li>
-			<a href={href} target="_self">{text}</a>
+			<a href="/" target="_self">Home</a>
 		</li>
 		<li>
-			<a href="https://mailchimp.com/" target="_blank">Newsletter</a>
+			<a href="/releases/" target="_self">Releases</a>
+		</li>
+		<li>
+			<a href="/signup/" target="">Newsletter</a>
 		</li>
 		<li>
 			<a href="mailto:doofdemos@gmail.com" target="_blank">Submit Demo</a>
@@ -87,6 +82,8 @@ if (page === "releases") {
 
 		&__top,
 		&__bottom {
+			position: relative;
+			z-index: 999;
 			font-size: 21px;
 			display: flex;
 			width: 100%;
