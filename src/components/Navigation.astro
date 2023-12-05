@@ -99,9 +99,9 @@ const { page } = Astro.props;
 			gap: 30px;
 			justify-content: flex-start;
 			a {
-				color: black;
+				color: var(--background);
 				&:visited {
-					color: black;
+					color: var(--background);
 				}
 				&:hover {
 					color: var(--highlight);
@@ -113,7 +113,7 @@ const { page } = Astro.props;
 			li.menu__trigger {
 				display: block;
 				width: calc(100% + 40px);
-				background-color: black;
+				background-color: var(--background);
 				margin: -20px;
 				margin-bottom: 20px;
 				padding: 30px;
