@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import exampleImage from "../img/example.png";
+import Image001 from "../img/HannahLaing_FWTDJ_RGB_02.jpg";
 ---
 
 <div class="releases">
@@ -10,24 +10,10 @@ import exampleImage from "../img/example.png";
 	</div>
 	<ul class="releases__list">
 		<li class="releases__item releases__item--active">
-			<div>000 / Release A</div>
-			<div>23/11/2023</div>
-		</li>
-		<li class="releases__item">
-			<div>001 / Release A</div>
-			<div>23/11/2023</div>
-		</li>
-		<li class="releases__item">
-			<div>002 / Release A</div>
-			<div>23/11/2023</div>
-		</li>
-		<li class="releases__item">
-			<div>003 / Release A</div>
-			<div>23/11/2023</div>
-		</li>
-		<li class="releases__item">
-			<div>004 / Release A</div>
-			<div>23/11/2023</div>
+			<div class="releases__item-title">
+				001 / HANNAH LAING FWTDJ (ALL NIGHT LONG)
+			</div>
+			<a href="https://ffm.to/hannah-laing-fwtdj">LINK</a>
 		</li>
 	</ul>
 </div>
@@ -35,7 +21,7 @@ import exampleImage from "../img/example.png";
 <div class="release-preview">
 	<div class="release-preview__inner">
 		<div class="release-preview__image-container">
-			<Image width="800" src={exampleImage} alt="example image" />
+			<Image width="800" src={Image001} alt="Release 001" />
 		</div>
 	</div>
 </div>
@@ -65,6 +51,9 @@ import exampleImage from "../img/example.png";
 			padding: 0;
 			margin: 0;
 			padding-top: 60px;
+			a {
+				color: black;
+			}
 		}
 		&__item {
 			display: flex;
@@ -74,6 +63,9 @@ import exampleImage from "../img/example.png";
 			font-size: 14px;
 			&--active {
 				background-color: var(--highlight);
+			}
+			&-title {
+				padding-right: 15%;
 			}
 		}
 	}
