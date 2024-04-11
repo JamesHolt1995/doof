@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
+import Image2 from "../img/Nancy_Flat_1080.jpg";
 ---
 
 <div class="releases">
@@ -9,7 +10,11 @@ import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 		<div>DATE</div>
 	</div>
 	<ul class="releases__list">
-		<li class="releases__item releases__item--active">
+		<li data-image={Image2.src} class="releases__item releases__item--active">
+			<div class="releases__item-title">002 / NANCY Live “Melbourne” EP</div>
+			<a href="https://doof.lnk.to/NANCYLiveMelbourneEP">LINK</a>
+		</li>
+		<li data-image={Image1.src} class="releases__item">
 			<div class="releases__item-title">001 / HANNAH LAING TRIPLE F</div>
 			<a href="https://ffm.to/hannah-laing-triple-f">LINK</a>
 		</li>
@@ -19,7 +24,7 @@ import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 <div class="release-preview">
 	<div class="release-preview__inner">
 		<div class="release-preview__image-container">
-			<Image width="800" src={Image1} alt="Release 001" />
+			<Image id="previewImage" width="800" src={Image2} alt="Release" />
 		</div>
 	</div>
 </div>
@@ -139,12 +144,13 @@ import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 
 <script>
 	const items = document.querySelectorAll(".releases__item");
-	console.log(items);
+	const previewImage = document.querySelector("#previewImage");
 
 	const toggle = (item) => {
-		console.log(item);
 		item.addEventListener("click", (e) => {
 			item.classList.toggle("releases__item--active");
+			let image = item.dataset.image;
+			previewImage.src = image;
 			for (var i = 0; i < items.length; i++) {
 				if (e.currentTarget != items[i]) {
 					// check here
