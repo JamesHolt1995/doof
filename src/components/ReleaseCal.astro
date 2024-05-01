@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 import Image2 from "../img/Nancy_Flat_1080.jpg";
+import Image3 from "../img/003_Flat.jpg";
 ---
 
 <div class="releases">
@@ -10,7 +11,13 @@ import Image2 from "../img/Nancy_Flat_1080.jpg";
 		<div>DATE</div>
 	</div>
 	<ul class="releases__list">
-		<li data-image={Image2.src} class="releases__item releases__item--active">
+		<li data-image={Image3.src} class="releases__item releases__item--active">
+			<div class="releases__item-title">
+				003 / DAVID RUST, UBERJAK'D FT ELLA YOUNG GO INSANE
+			</div>
+			<a href="https://doof.lnk.to/goinsane">LINK</a>
+		</li>
+		<li data-image={Image2.src} class="releases__item">
 			<div class="releases__item-title">002 / NANCY Live “Melbourne” EP</div>
 			<a href="https://doof.lnk.to/NANCYLiveMelbourneEP">LINK</a>
 		</li>
@@ -24,7 +31,7 @@ import Image2 from "../img/Nancy_Flat_1080.jpg";
 <div class="release-preview">
 	<div class="release-preview__inner">
 		<div class="release-preview__image-container">
-			<Image id="previewImage" width="800" src={Image2} alt="Release" />
+			<Image id="previewImage" width="800" src={Image3} alt="Release" />
 		</div>
 	</div>
 </div>
