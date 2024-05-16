@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 import Image2 from "../img/Nancy_Flat_1080.jpg";
 import Image3 from "../img/003_Flat.jpg";
+import Image4 from "../img/BK---No-Fool-Cover-Art-Flat.jpg";
 ---
 
 <div class="releases">
@@ -11,7 +12,11 @@ import Image3 from "../img/003_Flat.jpg";
 		<div>DATE</div>
 	</div>
 	<ul class="releases__list">
-		<li data-image={Image3.src} class="releases__item releases__item--active">
+		<li data-image={Image4.src} class="releases__item releases__item--active">
+			<div class="releases__item-title">004 / BK “No Fool”</div>
+			<a href="https://doof.lnk.to/nofool">LINK</a>
+		</li>
+		<li data-image={Image3.src} class="releases__item">
 			<div class="releases__item-title">
 				003 / DAVID RUST, UBERJAK'D FT ELLA YOUNG GO INSANE
 			</div>
@@ -31,7 +36,7 @@ import Image3 from "../img/003_Flat.jpg";
 <div class="release-preview">
 	<div class="release-preview__inner">
 		<div class="release-preview__image-container">
-			<Image id="previewImage" width="800" src={Image3} alt="Release" />
+			<Image id="previewImage" width="800" src={Image4} alt="Release" />
 		</div>
 	</div>
 </div>
