@@ -38,7 +38,7 @@ import Image6 from "../img/006-FINAL-(NO-DOTS).jpg";
 			<div class="releases__item-title">002 / NANCY Live “Melbourne” EP</div>
 			<a href="https://doof.lnk.to/NANCYLiveMelbourneEP">LINK</a>
 		</li>
-		<li data-image={Image1.src} class="releases__item">
+		<li data-image={Image1.src} class="releases__item releases__item--last">
 			<div class="releases__item-title">001 / HANNAH LAING TRIPLE F</div>
 			<a href="https://ffm.to/hannah-laing-triple-f">LINK</a>
 		</li>
@@ -77,9 +77,9 @@ import Image6 from "../img/006-FINAL-(NO-DOTS).jpg";
 			list-style: none;
 			padding: 0;
 			margin: 0;
-			padding-top: 60px;
+			padding-top: 58px;
 			overflow: scroll;
-			height: 46vh;
+			height: 48vh;
 			a {
 				color: black;
 			}
@@ -92,6 +92,9 @@ import Image6 from "../img/006-FINAL-(NO-DOTS).jpg";
 			font-size: 14px;
 			&--active {
 				background-color: var(--highlight);
+			}
+			&--last {
+				margin-bottom: 40px;
 			}
 			&-title {
 				padding-right: 15%;
