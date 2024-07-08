@@ -4,7 +4,8 @@ import Image1 from "../img/HannahLaing_TripleF_RGB_01_B.jpg";
 import Image2 from "../img/Nancy_Flat_1080.jpg";
 import Image3 from "../img/003_Flat.jpg";
 import Image4 from "../img/BK---No-Fool-Cover-Art-Flat.jpg";
-import Image5 from "../img/006-FINAL-(NO-DOTS).jpg";
+import Image5 from "../img/005-FINAL.jpg";
+import Image6 from "../img/006-FINAL-(NO-DOTS).jpg";
 ---
 
 <div class="releases">
@@ -13,11 +14,15 @@ import Image5 from "../img/006-FINAL-(NO-DOTS).jpg";
 		<div>DATE</div>
 	</div>
 	<ul style="text-transform: uppercase;" class="releases__list">
-		<li data-image={Image5.src} class="releases__item releases__item--active">
+		<li data-image={Image6.src} class="releases__item releases__item--active">
 			<div class="releases__item-title">
-				005 / The Obsessed, DBF To the Beat of the Drum
+				006 / The Obsessed, DBF To the Beat of the Drum
 			</div>
 			<a href="https://doof.lnk.to/TotheBeatoftheDrum">LINK</a>
+		</li>
+		<li data-image={Image5.src} class="releases__item">
+			<div class="releases__item-title">005 / RALLYY “Please F Off”</div>
+			<a href="https://doof.lnk.to/pleasefoff">LINK</a>
 		</li>
 		<li data-image={Image4.src} class="releases__item">
 			<div class="releases__item-title">004 / BK “No Fool”</div>
@@ -43,7 +48,7 @@ import Image5 from "../img/006-FINAL-(NO-DOTS).jpg";
 <div class="release-preview">
 	<div class="release-preview__inner">
 		<div class="release-preview__image-container">
-			<Image id="previewImage" width="800" src={Image5} alt="Release" />
+			<Image id="previewImage" width="800" src={Image6} alt="Release" />
 		</div>
 	</div>
 </div>
@@ -73,6 +78,7 @@ import Image5 from "../img/006-FINAL-(NO-DOTS).jpg";
 			padding: 0;
 			margin: 0;
 			padding-top: 60px;
+			overflow: scroll;
 			a {
 				color: black;
 			}
