@@ -1,6 +1,6 @@
 media:
   input: src/img
-  output: /img
+  output: ../../img
 content:
   - name: releases
     label: Releases
