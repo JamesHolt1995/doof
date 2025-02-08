@@ -5,4 +5,4 @@ content:
   - name: releases
     label: Releases
     path: src/components/ReleaseCal.astro
-    type: collection
+    type: file
