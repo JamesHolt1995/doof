@@ -13,7 +13,6 @@ content:
       - name: link
         label: Link
         type: string
-        pattern: ^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
       - name: cover
         label: Image
         type: image
