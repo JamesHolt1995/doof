@@ -1,8 +1,9 @@
 media:
   input: src/img
   output: /img
+  fields:
 content:
   - name: releases
     label: Releases
-    path: src/components/ReleaseCal.astro
-    type: file
+    path: src/content/releases
+    type: collection
