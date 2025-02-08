@@ -1,0 +1,3 @@
+media:
+  inout: src/img
+  ouput: /images
