@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
+const sortedReleases = releases.sort((a, b) =>
+	a.data.title.localeCompare(b.data.title)
+);
 ---
 
 <div class="releases">
@@ -11,7 +14,9 @@ const releases = await getCollection("releases");
 	</div>
 	<ul style="text-transform: uppercase;" class="releases__list">
 		{
-			releases.reverse().map((release, index) => (
+			// Sorting items alphabetically by title
+
+			sortedReleases.reverse().map((release, index) => (
 				<li
 					data-image={release.data.cover.src}
 					class={

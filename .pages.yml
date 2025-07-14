@@ -6,6 +6,7 @@ content:
     label: Releases
     path: src/content/releases
     type: collection
+    sort: [title]
     fields:
       - name: title
         label: Title
