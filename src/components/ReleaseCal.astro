@@ -3,15 +3,13 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
 const sortedReleases = releases.sort((a, b) =>
-	a.data.title.localeCompare(b.data.title)
+	a.data.title.localeCompare(b.data.title),
 );
 ---
 
 <div class="releases">
-	<div class="releases__header">
-		<div>DOOF RELEASES</div>
-		<div>DATE</div>
-	</div>
+	<div class="releases__bar"></div>
+	<div class="releases__bar releases__bar--bottom"></div>
 	<ul style="text-transform: uppercase;" class="releases__list">
 		{
 			// Sorting items alphabetically by title
@@ -26,7 +24,7 @@ const sortedReleases = releases.sort((a, b) =>
 					}
 				>
 					<div class="releases__item-title">{release.data.title}</div>
-					<a href={release.data.link}>LINK</a>
+					<a class="link" href={release.data.link}>LINK&nbsp;>></a>
 				</li>
 			))
 		}
@@ -47,35 +45,51 @@ const sortedReleases = releases.sort((a, b) =>
 </div>
 
 <style lang="scss">
+	.link {
+		text-decoration: none;
+		font-family: var(--dot-font);
+		color: var(--blue);
+	}
 	.releases {
+		font-family: var(--dot-font);
 		position: absolute;
 		top: 0;
-		background-color: white;
+		background-color: var(--grey);
 		width: 100%;
 		color: black;
 		min-height: 150vh;
 		box-sizing: border-box;
 		padding-bottom: 60vh;
-		&__header {
-			padding: 20px;
-			border-bottom: 1px solid #333;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
+		// &__header {
+		// 	padding: 20px;
+		// 	border-bottom: 1px solid #333;
+		// 	width: 100%;
+		// 	display: flex;
+		// 	justify-content: space-between;
+		// 	position: fixed;
+		// 	top: 0;
+		// 	background-color: var(--white);
+		// }
+		&__bar {
 			position: fixed;
+			display:none;
+			height: 60px;
+			background-color: var(--grey);
 			top: 0;
-			background-color: var(--white);
+			width: 100%;
+			&--bottom {
+				top: auto;
+				bottom: 0;
+			}
 		}
 		&__list {
 			list-style: none;
 			padding: 0;
 			margin: 0;
-			padding-top: 58px;
+			padding-top: 0;
+			padding-bottom: 400px;
 			overflow: scroll;
-			height: 48vh;
-			a {
-				color: black;
-			}
+			height: 80vh;
 		}
 		&__item {
 			display: flex;
@@ -83,8 +97,12 @@ const sortedReleases = releases.sort((a, b) =>
 			width: 100%;
 			padding: 20px;
 			font-size: 14px;
+			color: var(--blue);
 			&--active {
-				background-color: var(--highlight);
+				color: var(--black);
+				a{
+					color: var(--black);
+				}
 			}
 			&--last {
 				margin-bottom: 40px;
@@ -94,6 +112,9 @@ const sortedReleases = releases.sort((a, b) =>
 			}
 			&:hover {
 				cursor: pointer;
+				color: var(--black);
+				a{
+					color: var(--black);}
 			}
 		}
 	}
@@ -104,6 +125,7 @@ const sortedReleases = releases.sort((a, b) =>
 		background-color: var(--background);
 		&__inner {
 			padding: 10px;
+			padding-bottom: 50px;
 		}
 		&__image-container {
 			width: 100%;
@@ -131,19 +153,23 @@ const sortedReleases = releases.sort((a, b) =>
 
 	@media screen and (min-width: 900px) {
 		.releases {
-			height: calc(100% - 140px);
-			min-height: auto;
+			height: 100%;
+			min-height: 100%;
 			width: 50%;
-			top: 70px;
 			margin-left: auto;
 			position: fixed;
 			right: 0;
+			padding-top: 0;
 			overflow: scroll;
+			padding-bottom: 0;
 
 			z-index: 101;
 			&__header {
 				position: fixed;
 				top: 70px;
+			}
+			&__bar {
+				display: block;
 			}
 			&__list {
 				padding-top: 58px;

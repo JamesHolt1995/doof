@@ -15,7 +15,6 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link rel="stylesheet" href="https://use.typekit.net/may4frq.css" />
 	</head>
 	<body>
 		<slot />
@@ -23,13 +22,38 @@ const { title } = Astro.props;
 </html>
 
 <style lang="scss" is:global>
+	@font-face {
+		font-family: "pilat";
+		src: url("/fonts/PilatExtended-Black.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "nhaas";
+		src: url("/fonts/NHaasGroteskTXPro-55Rg.woff2") format("woff2");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "00theran";
+		src: url("/fonts/OOTheran-Regular.otf") format("woff2");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 	:root {
-		--main-font: "eurostile-extended", sans-serif;
-		--main-font-weight: 900;
-		--secondary-font-weight: 500;
+		--main-font: "pilat", sans-serif;
+		--main-font-weight: 100;
+		--secondary-font: "nhaas", sans-serif;
+		--dot-font: "00theran", sans-serif;
+		--secondary-font-weight: 100;
 		--white: #ffffff;
-		--highlight: #d5fe00;
-		--background: #0f0f0f;
+		--blue: #0054ff;
+		--highlight: #bdff91;
+		--grey: #b2b2b2;
+		--background: #000000;
 	}
 	body {
 		background-color: var(--background);

@@ -6,7 +6,14 @@ import SignupForm from "../components/SignupForm.astro";
 
 <Layout title="Doof | Sign up">
 	<Navigation page="" />
-	<SignupForm />
+	<div class="signup"><SignupForm /></div>
 </Layout>
 
-<style lang="scss"></style>
+<style lang="scss">
+	.signup {
+		color: var(--grey);
+		border-color: var(--grey);
+		font-family: var(--dot-font);
+		text-transform: uppercase;
+	}
+</style>

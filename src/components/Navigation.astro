@@ -7,9 +7,8 @@
 ---
 
 <nav class="menu">
+	<div class="menu__trigger">Menu</div>
 	<ul class="menu__top">
-		<li class="menu__trigger">Menu</li>
-
 		<li>
 			<a href="/" target="_self">Home</a>
 		</li>
@@ -38,9 +37,9 @@
 				Soundcloud
 			</a>
 		</li>
-		<li>
+		<!-- <li>
 			<a href="https://www.tiktok.com/@doofdoof_" target="_blank">TikTok</a>
-		</li>
+		</li> -->
 		<li>
 			<a href="https://www.youtube.com/@doofdoof_" target="_blank">Youtube</a>
 		</li>
@@ -54,40 +53,53 @@
 		height: 100%;
 		position: fixed;
 		overflow-y: scroll;
-		z-index: 100;
-		top: 0;
+		z-index: 999;
+		bottom: 0;
 		left: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: 20px;
+		padding: 10px;
 		box-sizing: border-box;
+		pointer-events: none;
 		ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
 		}
 		a {
-			color: var(--white);
+			color: var(--grey);
 			text-decoration: none;
 			&:visited {
-				color: var(--white);
+				color: var(--grey);
 			}
 			&:hover {
-				color: var(--highlight);
+				color: var(--blue);
 			}
 		}
 		&__trigger {
 			display: none;
+			pointer-events: all;
 		}
-
+		&__top {
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			pointer-events: all;
+		}
+		&__bottom {
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+			pointer-events: all;
+		}
 		&__top,
 		&__bottom {
-			position: relative;
+			position: fixed;
 			z-index: 999;
 			font-size: 21px;
 			display: flex;
-			width: 100%;
+			width: calc(100% - 20px);
 			justify-content: space-between;
 		}
 	}
@@ -95,42 +107,64 @@
 	@media screen and (max-width: 900px) {
 		.menu {
 			display: flex;
-			text-align: center;
+			text-align: left;
 			flex-direction: column;
-			gap: 30px;
+			gap: 20px;
 			justify-content: flex-start;
+			padding-top: 60px;
 			a {
-				color: var(--background);
+				color: var(--grey);
 				&:visited {
-					color: var(--background);
-				}
-				&:hover {
-					color: var(--highlight);
+					color: var(--grey);
 				}
 			}
 			li {
 				display: none;
 			}
-			li.menu__trigger {
+			&__top,
+			&__bottom {
+				position: relative;
+				top: auto;
+				bottom: auto;
+				left: auto;
+				right: auto;
+			}
+			&__trigger {
 				display: block;
-				width: calc(100% + 40px);
-				background-color: var(--background);
-				margin: -20px;
-				margin-bottom: 20px;
-				padding: 30px;
+				width: 100%;
+				background-color: transparent;
 				box-sizing: border-box;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				color: var(--grey);
+				text-align: left;
+				padding: 10px;
+				font-size: 24px;
 			}
 			&__top,
 			&__bottom {
 				justify-content: center;
 				flex-direction: column;
-				gap: 30px;
+				gap: 20px;
 			}
 			&--open {
 				z-index: 1000;
-				background-color: var(--white);
+				background-color: var(--blue);
 				li {
 					display: block;
+					font-size: 28px;
+				}
+				.menu__trigger {
+					top: 0;
+					right: 0;
+					bottom: auto;
+					left: auto;
+					font-family: var(--dot-font);
+					font-size: 52px;
+					text-align: right;
+					padding: 0;
+					position: absolute;
 				}
 			}
 		}
