@@ -2,7 +2,12 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const releases = await getCollection("releases");
-const sortedReleases = releases.sort((a, b) =>
+
+// Separate the pinned release
+const pinnedRelease = releases.find((r) => r.data.title.toLowerCase() === "doof for life");
+const regularReleases = releases.filter((r) => r.data.title.toLowerCase() !== "doof for life");
+
+const sortedReleases = regularReleases.sort((a, b) =>
 	a.data.title.localeCompare(b.data.title),
 );
 ---
@@ -28,6 +33,18 @@ const sortedReleases = releases.sort((a, b) =>
 				</li>
 			))
 		}
+		{
+			// Pinned release at the bottom
+			pinnedRelease && (
+				<li
+					data-image={pinnedRelease.data.cover.src}
+					class="releases__item releases__item--pinned"
+				>
+					<div class="releases__item-title">{pinnedRelease.data.title}</div>
+					<a class="link" href={pinnedRelease.data.link}>LINK&nbsp;>></a>
+				</li>
+			)
+		}
 	</ul>
 </div>
 
@@ -37,7 +54,7 @@ const sortedReleases = releases.sort((a, b) =>
 			<Image
 				id="previewImage"
 				width="800"
-				src={releases[0].data.cover}
+				src={sortedReleases[0].data.cover}
 				alt="Release"
 			/>
 		</div>
